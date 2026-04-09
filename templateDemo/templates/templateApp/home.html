@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+    <head> 
+        
+    </head>
+    <body> 
+        <h1>MAIN PAGE </h1>
+        <ul>
+        {% for i in data%}
+            {% if i != "Elephat" %}
+                <li>{{i}}</li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+        <img src="{% static "images/puneeth.jpg" %}" width=400px /> 
+    </body>
+    </html>

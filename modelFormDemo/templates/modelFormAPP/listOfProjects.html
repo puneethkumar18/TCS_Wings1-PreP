@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListOfProjects</title>
+</head>
+<body>
+    <h1>Project List:</h1>
+    {% if projects %}
+    {% for project in projects %}
+    <h5>{{project.name}}</h5>
+    <ul>
+        <li>Start Date : {{project.startDate}}</li>
+        <li>End Date : {{project.endDate}}</li>
+        <li>assignedTo : {{project.assignedTo}}</li>
+        <li>priority : {{project.priority}}</li>
+    </ul>
+    <br/>
+    {% endfor %}
+    {% else %}
+    <p> no data records found !!</p>
+    {% endif %}
+</body>
+</html>

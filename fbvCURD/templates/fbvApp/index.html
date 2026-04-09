@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information :</title>
+</head>
+<body>
+    <h1>Student Details:</h1>
+    <table border="2">
+        <thead>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>TestScore</th>
+        </thead>
+        {% for student in students %}
+        <tr>
+            <td>{{student.id}}</td>
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.testScore}}</td>
+            <td><a href="/fbv/delete/{{student.id}}">Delete</a></td>
+            <td><a href="/fbv/update/{{student.id}}">Update</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
