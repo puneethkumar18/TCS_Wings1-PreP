@@ -26,4 +26,5 @@ urlpatterns = [
     path('add/',views.addItem),
     path('index/',views.index),
     path('displayItems/',views.displayItems),
+    path('api/',views.sessionApi),
 ]

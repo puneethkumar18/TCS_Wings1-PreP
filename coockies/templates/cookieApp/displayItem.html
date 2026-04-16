@@ -7,19 +7,18 @@
 </head>
 <body>
     <h1>Items in Cart:</h1>
-    {{products}}
-    {% if products %}
+    {% if request.COOKIES.products %}
     <table>
         <thead>
             <th>Product Name</th>
             <th>Quantity</th>
         </thead>
-         {% comment %} {% for key,val in products %}
+        {% for key,val in request.COOKIES.products %}
         <tr>
             <td>{{key}}</td>
             <td>{{val}}</td>
         </tr>
-        {% endfor %}  {% endcomment %}
+        {% endfor %}
     </table>
     {% else %}
     <h4> No Item Records Found :</h4>

@@ -79,3 +79,9 @@ def displayItems(request):
         products = {}
 
     return render(request, 'cookieApp/displayItem.html', {"products": products})
+
+def sessionApi(request):
+    cnt =  request.session.get("count",0)
+    cnt = cnt+1
+    request.session['count'] = cnt
+    return render(request,"cookieApp/api.html",{'count':cnt})
