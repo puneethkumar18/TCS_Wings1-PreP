@@ -1,16 +1,23 @@
 from django.shortcuts import render,redirect
 from .models import Student
 from .forms import StudentForm
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 # Create your views here.
+
+@login_required
 def getStudents(request):
     students = Student.objects.all()
     context = {'students':students}
     return render(request,'fbvApp/index.html',context)
 
+
+@login_required
 def home(request):
     return render(request,"fbvApp/home.html")
 
+
+@login_required
 def createStudent(request):
     studentForm = StudentForm()
     if request.method == 'POST':
@@ -22,6 +29,8 @@ def createStudent(request):
     return render(request,"fbvApp/createStudent.html",{'studentForm':studentForm})
 
 
+
+@login_required
 def deleteStudent(request,id):
     student = Student.objects.get(id=id)
     if student:
@@ -31,6 +40,11 @@ def deleteStudent(request,id):
     return redirect('/fbv/')
 
 
+def logoutUser(request):
+    logout(request)
+    return redirect('/fbv/')
+
+@login_required
 def updateStudent(request,id):
     student = Student.objects.get(id=id)
     if request.method == "POST":

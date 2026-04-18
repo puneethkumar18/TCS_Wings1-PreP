@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Items in the Cart details :</h1>
+    {% if request.session.items %}
+    <table border="2">
+        <thead>
+            <th>Name</th>
+            <th>Quantity</th>
+        </thead>
+        {% for key,val in request.session.items %}
+        <tr>
+            <td>{{key}}</td>
+            <td>{{val}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p> No Records found !!</p>
+    {% endif %}
+</body>
+</html>
+
